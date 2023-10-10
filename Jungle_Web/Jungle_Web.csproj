@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Guide\**" />
+    <Compile Remove="Areas\Travel\**" />
+    <Compile Remove="Controllers\**" />
+    <Compile Remove="Views\**" />
+    <Content Remove="Areas\Guide\**" />
+    <Content Remove="Areas\Travel\**" />
+    <Content Remove="Controllers\**" />
+    <Content Remove="Views\**" />
+    <EmbeddedResource Remove="Areas\Guide\**" />
+    <EmbeddedResource Remove="Areas\Travel\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Areas\Guide\**" />
+    <None Remove="Areas\Travel\**" />
+    <None Remove="Controllers\**" />
+    <None Remove="Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.8" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Jungle_DataAccess\Jungle_DataAccess.csproj" />
+		<ProjectReference Include="..\Jungle_Models\Jungle_Models.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+	</ItemGroup>
+
+</Project>

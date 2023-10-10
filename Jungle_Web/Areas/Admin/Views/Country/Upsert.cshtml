@@ -1,0 +1,47 @@
+﻿@using Jungle_Models.Models
+@model Country
+
+@{
+    var title = "Create a country";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="p-3 DivBgForm">
+    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+        <div class="row p-3 ">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-12 border-bottom container rounded p-2">
+                <input type="hidden" asp-for="Id" />
+                @if (Model.Id > 0)
+                {
+                    //Edit
+                    title = "Edit a country";
+                }
+                <h4>@title</h4>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-8 offset-2">
+                @if (Model.Id != 0)
+                {
+                    <partial name="_UpdateAndBackToListButtons" model="Model.Id" /> }
+                else
+                {
+                    <partial name="_CreateAndBackToListButtons" />}
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
